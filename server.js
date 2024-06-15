@@ -10,10 +10,8 @@ const app = express();
 
 const port = 4000;
 
-
 // middleware
 app.use(express.json());
-
 
 // using this we can access any package from frontend
 app.use(
@@ -21,8 +19,9 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:5174",
-    //   "https://digital-mru-frontend.vercel.app",
-    //   "https://digital-mru-admin.vercel.app",
+      "https://crime-management-amber.vercel.app",
+      //   "https://digital-mru-frontend.vercel.app",
+      //   "https://digital-mru-admin.vercel.app",
     ],
     methods: ["POST", "GET"],
     credentials: true,
@@ -32,9 +31,8 @@ app.use(
 // DB Connection
 connectDB();
 
-
 app.get("/", (req, res) => {
-    res.send("API Working");
+  res.send("API Working");
 });
 
 app.use("/api/user", userRouter);
